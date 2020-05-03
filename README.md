@@ -1,9 +1,8 @@
 # Calculator
 A simple calculator written in C.
 
-## Usage
+### Usage:
 ```
-
 Help:
  -v = version
  -id = input decimal
