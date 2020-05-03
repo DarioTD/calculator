@@ -59,21 +59,47 @@ int
 main(int argc, char *argv[])
 {
 	char version[10] = "1.0alpha\n";
+	int input;
 
 	for (int i = 1; i < argc; i++) {
 		if (!strcmp(argv[i], "-v")) {
 			printf("calculator-%s", version);
 			exit(0);
-		} else if (!strcmp(argv[i], "-id")) {
-		} else if (!strcmp(argv[i], "-ih")) {
-		} else if (!strcmp(argv[i], "-ib")) {
-		} else if (!strcmp(argv[i], "-od")) {
-		} else if (!strcmp(argv[i], "-oh")) {
-		} else if (!strcmp(argv[i], "-ob")) {
+		} else if (!strcmp(argv[1], "-id")) {
+			sscanf(argv[2], "%d", &input);
+			printf("Input Decimal: %s\n", argv[2]);
+			if (!strcmp(argv[3], "-od")) {
+				printf("Result in decimal is: %d\n", input);
+			} else if (!strcmp(argv[3], "-oh")) {
+				printf("Result in hexadecimal is: %X\n", input);
+			} else if (!strcmp(argv[3], "-ob")) {
+				printf("Result in binary is: {%u}\n", input);
+			}
+		} else if (!strcmp(argv[1], "-ih")) {
+			sscanf(argv[2], "%x", &input);
+			printf("Input Hexadecimal: %s\n", argv[2]);
+			if (!strcmp(argv[3], "-od")) {
+				printf("Result in decimal is: %d\n", input);
+			} else if (!strcmp(argv[3], "-oh")) {
+				printf("Result in hexadecimal is: %X\n", input);
+			} else if (!strcmp(argv[3], "-ob")) {
+				printf("Result in binary is: {%u}\n", input);
+			}
+		} else if (!strcmp(argv[1], "-ib")) {
+			sscanf(argv[2], "%u", &input);
+			printf("Input Binary: %s\n", argv[2]);
+			if (!strcmp(argv[3], "-od")) {
+				printf("Result in decimal is: %d\n", input);
+			} else if (!strcmp(argv[3], "-oh")) {
+				printf("Result in hexadecimal is: %X\n", input);
+			} else if (!strcmp(argv[3], "-ob")) {
+				printf("Result in binary is: {%u}\n", input);
+			}
 		} else {
 			help();
 			exit(1);
 		}
+		exit(0);
 	}
 	run();
 
