@@ -1,4 +1,4 @@
-# Calculator
+# Calculator [WIP]
 A simple calculator written in C.
 
 ### Usage:
