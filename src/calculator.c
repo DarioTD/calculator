@@ -2,8 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+/* A simple calculator */
+
 static void
-run(void)
+run (void)
 {
 	double num1, num2, result;
 	char operator;
@@ -38,25 +40,23 @@ run(void)
 			  result = num1 / num2;
 			  break;
 	}
-	printf("The result is: %f\n", result);
+	printf("The result is: %.2f\n", result);
 }
 
 static void
-help(void)
+help (void)
 {
 	fputs("Help:\n"
 		" -v = version\n"
 		" -id = input decimal\n"
 		" -ih = input hexadecimal\n"
-		" -ib = input binary\n"
 		" -od = output decimal\n"
-		" -oh = output hexadecimal\n"
-		" -ob = output binary\n", stderr);
+		" -oh = output hexadecimal\n", stderr);
 	exit(1);
 }
 
 int
-main(int argc, char *argv[])
+main (int argc, char *argv[])
 {
 	char version[10] = "1.0alpha\n";
 	int input;
@@ -68,33 +68,17 @@ main(int argc, char *argv[])
 		} else if (!strcmp(argv[1], "-id")) {
 			sscanf(argv[2], "%d", &input);
 			printf("Input Decimal: %s\n", argv[2]);
-			if (!strcmp(argv[3], "-od")) {
+			if (!strcmp(argv[3], "-od"))
 				printf("Result in decimal is: %d\n", input);
-			} else if (!strcmp(argv[3], "-oh")) {
+			else if (!strcmp(argv[3], "-oh"))
 				printf("Result in hexadecimal is: %X\n", input);
-			} else if (!strcmp(argv[3], "-ob")) {
-				printf("Result in binary is: {%u}\n", input);
-			}
 		} else if (!strcmp(argv[1], "-ih")) {
 			sscanf(argv[2], "%x", &input);
 			printf("Input Hexadecimal: %s\n", argv[2]);
-			if (!strcmp(argv[3], "-od")) {
+			if (!strcmp(argv[3], "-od"))
 				printf("Result in decimal is: %d\n", input);
-			} else if (!strcmp(argv[3], "-oh")) {
+			else if (!strcmp(argv[3], "-oh"))
 				printf("Result in hexadecimal is: %X\n", input);
-			} else if (!strcmp(argv[3], "-ob")) {
-				printf("Result in binary is: {%u}\n", input);
-			}
-		} else if (!strcmp(argv[1], "-ib")) {
-			sscanf(argv[2], "%u", &input);
-			printf("Input Binary: %s\n", argv[2]);
-			if (!strcmp(argv[3], "-od")) {
-				printf("Result in decimal is: %d\n", input);
-			} else if (!strcmp(argv[3], "-oh")) {
-				printf("Result in hexadecimal is: %X\n", input);
-			} else if (!strcmp(argv[3], "-ob")) {
-				printf("Result in binary is: {%u}\n", input);
-			}
 		} else {
 			help();
 			exit(1);
@@ -102,6 +86,5 @@ main(int argc, char *argv[])
 		exit(0);
 	}
 	run();
-
 	return 0;
 }
