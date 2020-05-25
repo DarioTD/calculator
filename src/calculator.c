@@ -11,7 +11,7 @@ run (void)
 	char operator;
 
 	printf("======================\n");
-	printf("======Calculator======\n");
+	printf("===== Calculator =====\n");
 	printf("======================\n");
 	printf("\nCalculate 2 numbers\n");
 	printf("Digit a number: ");
